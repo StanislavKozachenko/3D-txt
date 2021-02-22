@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3D text</title>
+	<meta charset="utf-8">
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<link rel="shortcut icon" href="https://sun9-67.userapi.com/impg/jUvwwbwXVDieUIanDtWgt5pzvFpZfAzsxCLhXw/Da2ORSwUpcg.jpg?size=1620x2160&quality=96&proxy=1&sign=882b05de9f115631f2f69a38ce512c9d&type=album" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="text">
+		<!--<div class="txtBox">Love <span id="id_1">U</span> <span id="id_2">Hard</span></div>-->
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+	<script type="text/javascript">
+		for(let i = 1; i <= 30; i++){
+			let box = document.createElement('div');
+			box.classList.add('txtBox');
+			box.innerHTML = 'I<span id="id_1">Love</span> <span id="id_2">Someone</span>';
+			document.querySelector('.text').appendChild(box);
+		}
+		document.body.addEventListener("mousemove", e => {
+			gsap.to('.txtBox', {
+				x: e.clientX,
+				y: e.clientY,
+				stagger: -0.01,
+				rotate:(i, target)=> {
+					return (i+1) *0.2
+				}	
+			})
+		})
+	</script>
+</body>
+</html>
